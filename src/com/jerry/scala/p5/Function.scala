@@ -3,6 +3,7 @@ package com.jerry.scala.p5
 /**
  * Scala入门到精通——第五节 函数与闭包
  * http://blog.csdn.net/lovehuangjiaju/article/details/46984575
+ * 函数
  */
 object Function {
   def main(args: Array[String]): Unit = {
@@ -57,5 +58,15 @@ object Function {
     val fun2:(Double) => Double = 1+_
     println(fun2(200))
     
+    
+    //函数参数(高阶函数）
+    def convertIntString(f:(Int) => String) = f(4)
+    println(convertIntString { (x:Int) => x+"s" })
+    
+    //高阶函数可以产生新的函数
+    def multiplyBy(factor:Double) = (x:Double) => factor * x
+    val x = multiplyBy(10)
+    println(x)
+    println(x(50))
   }
 }
