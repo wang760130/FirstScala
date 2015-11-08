@@ -36,6 +36,26 @@ object Function {
     
     println(Array(1,2,3,4).map { (x:Int) => x+1 }.mkString(","))
     
+    //参数类型推断写法
+    println(Array(1,2,3,4) map{(x) => x+1} mkString(","))
+    
+    //函数只有一个参数的话，可以省略()
+    println(Array(1,2,3,4) map{x => x+1} mkString(","))
+    
+    //如果参数右边只出现一次，则可以进一步简化
+    println(Array(1,2,3,4) map{_+1} mkString(","))
+    
+    //值函数简化方式
+    //val fun0=1+_，该定义方式不合法，因为无法进行类型推断
+//    val fun0 = 1+_
+    
+    //值函数简化方式（正确方式）  
+    val fun1 = 1+(_:Double)
+    println(fun1(999))
+    
+    //值函数简化方式
+    val fun2:(Double) => Double = 1+_
+    println(fun2(200))
     
   }
 }
