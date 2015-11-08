@@ -16,5 +16,23 @@ object Closure {
     
     val fun = (x:Int) => x + more
     println(fun)
+    
+    println(fun(10))
+    
+    println(more = 10)
+    
+    println(fun(10))
+    
+    var someNumbers = List(-11,-10, -4, 0, 5, 10)
+    println(someNumbers)
+    
+    var sum = 0
+    
+    someNumbers.foreach(sum += _)
+    
+    println(sum)
+    
+    //下列函数也是一种闭包，因为在运行时其值才得以确定
+    def multiplyBy(factor:Double)=(x:Double)=>factor*x
   }
 }
