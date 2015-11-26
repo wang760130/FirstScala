@@ -2,7 +2,7 @@ package com.jerry.scala.p6
 
 /**
  * Scala入门到精通——第六节：类和对象
- * http://blog.csdn.net/lovehuangjiaju/article/details/47009607
+ * http://blog.csdn.net/lovehuangjiaju/article/details/47011273
  * apply方法
  */
 
