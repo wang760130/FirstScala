@@ -31,6 +31,19 @@ trait FileLogger extends Logger {
   }
 }
 
+// 前面的FileLogger中的文件名被写死为”file.log”，程序不具有通用性，这边对前面的FileLogger进行改造，把文件名写成参数形式
+trait FileLogger2 extends Logger {
+ val fileName:String
+ 
+ val fileOutput = new PrintWriter(fileName:String)
+ fileOutput.println("#")
+ 
+ def log(msg:String):Unit={
+   fileOutput.print(msg)
+   fileOutput.flush()
+ }
+}
+
 object Test1 {
   def main(args: Array[String]): Unit = {
     new FileLogger {}.log("trait demo")
