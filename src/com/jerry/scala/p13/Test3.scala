@@ -13,5 +13,11 @@ object Test3 {
     //上面的代码等价于下面的代码
     def print(x:String)=println(x)
     Array("Hadoop","Hive","Spark")foreach(print)
+    
+    // 定义print的偏函数
+    // 下划线_并不是占位符的作用，而是作为偏函数的定义符
+    val p = print _
+    Array("Hadoop","Hive","Spark").foreach(p)
+    Array("Hadoop","Hive","Spark")foreach(print _)
   }
 }
