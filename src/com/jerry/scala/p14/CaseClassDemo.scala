@@ -15,6 +15,9 @@ case class Teacher(name:String, age:Int, teacherNo:Int) extends Person
 
 case class Nobody(name:String) extends Person
 
+//SchoolClass为接受多个Person类型参数的类
+case class SchoolClass(classDescription:String, persons:Person*)
+
 object CaseClassDemo {
   def main(args: Array[String]): Unit = {
     //case class 会自动生成apply方法，从而省去new操作
@@ -25,6 +28,13 @@ object CaseClassDemo {
       case Student(name, age, studentNo) => println(name+":"+age+":"+studentNo)
       case Teacher(name,age,teacherNo)=>println(name+":"+age+":"+teacherNo)
       case Nobody(name)=>println(name)
+    }
+    
+    // 多个参数的case class
+    val school = SchoolClass("1class",Teacher("john",27,2015),Student("kitty",27,2015));
+    school match{
+      case SchoolClass(_,_,Student(name,age,studentNo)) => println(name)
+      case _ => println("Nobody")
     }
   }
 }
