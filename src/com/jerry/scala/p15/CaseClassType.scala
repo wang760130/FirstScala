@@ -50,6 +50,31 @@ object CaseClassType {
       case _ => "other"
     }
     
+    // 元组模式
+    var tuple = ("spark","hive","hbase")
+    def tuplePattern(t:Any) = t match {
+      case (one,_,_) => one
+      case _ => "other"
+    }
+    println(tuplePattern(tuple))
     
-  }
+    // 类型模式
+    def tryePattern(t:Any) = t match {
+      case t:String => "String"
+      case t:Int => "Integer"
+      case t:Double => "Double"
+    }
+    println(tryePattern(5.0))
+    
+    
+    var t = List(List(1,2,3), List(2,3,4))
+    def variableBindingPattern(t:Any) = t match {
+      //变量绑定，采用变量名（这里是e)
+      //与@符号，如果后面的模式匹配成功，则将
+      //整体匹配结果作为返回
+      case List(_,e@List(_,_,_)) => e
+      case _ => Nil
+    }
+    println(variableBindingPattern(t))
+   }
 }
