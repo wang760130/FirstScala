@@ -76,5 +76,23 @@ object CaseClassType {
       case _ => Nil
     }
     println(variableBindingPattern(t))
-   }
+    
+    //利用for循环对Map进行模式匹配输出
+    val map = Map("china"->"beijing","japan"->"tokyo","Aerican"->"Washington")
+    for((nation, capital) <- map) 
+      println(nation + ":" + capital) 
+    
+    // 正则表达式中的模式匹配
+    val ipRegex = "(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)".r
+    for(ipRegex(one,two,three,four) <- ipRegex.findAllIn("192.168.1.1")) {
+      println(one + "." + "two" + "three" + "." + "four")
+    }
+      
+    def optionPattern(t:String) = map.get(t) match {
+      case Some(x) => println(x);x
+      case None => println("None");-1
+    }
+    println(optionPattern("china"))
+
+  }
 }
