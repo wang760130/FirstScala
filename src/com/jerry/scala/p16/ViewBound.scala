@@ -14,4 +14,5 @@ object ViewBound extends App {
   //下面这条语句不合法，这是因为
   //Int类型没有实现Comparable接口
   //val s2 = Student1("john",170)
+  
 }
