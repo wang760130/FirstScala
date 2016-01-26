@@ -1,4 +1,4 @@
-package com.jerry.scala.p16
+package com.jerry.scala.p17
 
 /**
  * Scala入门到精通——第十七节 类型参数（一）
